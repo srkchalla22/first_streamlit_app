@@ -28,10 +28,7 @@ streamlit.header('Fruityvice Fruit Advice!')
 #fruityvice_response =  requests.get("https://fruityvice.com/api/fruit/"+"kiwi")
 ##streamlit.text(fruityvice_response.json()) # just writes the data to the screen
 
-##take the json version of the response and normalize it
-#fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-##output it the screen as a table
-#streamlit.dataframe(fruityvice_normalized)
+
 
 #Below code is choice based
 fruit_choice= streamlit.text_input('What fruit would you like the information about?','Kiwi')
@@ -39,3 +36,8 @@ streamlit.write('The user entered',fruit_choice)
 
 import requests
 fruityvice_responce = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+
+#take the json version of the response and normalize it
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+#output it the screen as a table
+streamlit.dataframe(fruityvice_normalized)
