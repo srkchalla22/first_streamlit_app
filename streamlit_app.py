@@ -33,13 +33,13 @@ streamlit.dataframe(fruits_to_show)
 
 #create a repeatable code block(called a function)
 def get_fruityvice_data(this_fruit_choice):
-    streamlit.header('Line1 Function'+this_fruit_choice)
+    #streamlit.header('Line1 Function'+this_fruit_choice)
     fruityvice_responce = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
-    if not fruityvice_responce:
-        streamlit.header('Line2 Function Empty')    
+    #if not fruityvice_responce:
+    #    streamlit.header('Line2 Function Empty')    
     fruityvice_normalized = pandas.json_normalize(fruityvice_responce.json())
-    if not fruityvice_normalized:
-        streamlit.header('Line3 Function')        
+    #if not fruityvice_normalized:
+    #    streamlit.header('Line3 Function')        
     return fruityvice_normalized
 
 #New Section to display fruityvice api response
@@ -51,8 +51,8 @@ try:
         streamlit.error("Please select a fruit to get information.")
     else:
         back_from_function=get_fruityvice_data(fruit_choice)
-        if not back_from_function:
-            streamlit.error("Back from function is empty")
+        #if not back_from_function:
+        #    streamlit.error("Back from function is empty")
         streamlit.dataframe(back_from_function)
 except URLError as e:
     streamlit.error()
