@@ -40,7 +40,7 @@ def get_fruityvice_data(this_fruit_choice):
     fruityvice_normalized = pandas.json_normalize(fruityvice_responce.json())
     if not fruityvice_normalized:
         streamlit.header('Line3 Function')        
-    return fruitvice_normalized
+    return fruityvice_normalized
 
 #New Section to display fruityvice api response
 streamlit.header('Fruityvice Fruit Advice!')
