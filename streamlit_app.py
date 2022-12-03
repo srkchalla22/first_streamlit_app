@@ -68,14 +68,14 @@ except URLError as e:
 streamlit.stop()
 #import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#my_cur = my_cnx.cursor()
+#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 #my_data_row = my_cur.fetchone()
 #streamlit.text("Hello from Snowflake:")
 #streamlit.text(my_data_row)
 
-my_cur.execute("SELECT * from fruit_load_list")
+#my_cur.execute("SELECT * from fruit_load_list")
 #my_data_row = my_cur.fetchone()
 #Fecth all instead of one
 #my_data_rows = my_cur.fetchall()
@@ -93,7 +93,7 @@ def get_fruit_load_list():
 #Add a button to load the fruit
 if streamlit.button('Get Fruit Load List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-	my_data_rows = get_fruit_load_list()
+    my_data_rows = get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
 
 #Below code is choice based
